@@ -48,7 +48,7 @@ const BirthdayLanding = () => {
 
           {/* XYZ Button */}
           <button className="timeline-button" onClick={handleTimelineClick}>
-            XYZ
+            nom
           </button>
           
           {/* Floating Hearts */}
@@ -69,7 +69,7 @@ const BirthdayLanding = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 2}s`
-            }}>✨</div>
+            }}>🐈-</div>
           ))}
         </div>
       </div>
