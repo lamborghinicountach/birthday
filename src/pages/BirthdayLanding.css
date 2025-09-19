@@ -1,0 +1,431 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#root {
+  height: auto;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  width: 100%;
+  height: auto;
+  min-height: 150vh; /* This ensures scrollable content */
+}
+
+.birthday-container {
+  width: 100vw;
+  background: linear-gradient(135deg, #87CEEB 0%, #E0F6FF 50%, #FFD700 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  padding: 2rem 1rem 8rem 1rem; /* Large bottom padding for scroll */
+  min-height: 150vh; /* Extends beyond viewport */
+}
+
+.animated-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.element-0 {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 215, 0, 0.3);
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.element-1 {
+  width: 40px;
+  height: 40px;
+  background: rgba(135, 206, 235, 0.4);
+  top: 70%;
+  left: 80%;
+  animation-delay: 1s;
+}
+
+.element-2 {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 248, 220, 0.3);
+  top: 30%;
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.element-3 {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 215, 0, 0.2);
+  top: 80%;
+  left: 15%;
+  animation-delay: 0.5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.confetti-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3rem 1rem;
+}
+
+.birthday-text {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 900;
+  text-shadow: 
+    4px 4px 0px #FFD700,
+    8px 8px 0px rgba(135, 206, 235, 0.8),
+    12px 12px 20px rgba(0, 0, 0, 0.3);
+  margin: 2rem 0 1rem 0;
+  line-height: 0.9;
+  text-align: center;
+}
+
+.word {
+  display: block;
+  color: #ffffff;
+  animation: bounce 2s ease-in-out infinite;
+  margin: 0.1em 0;
+}
+
+.word:nth-child(1) {
+  animation-delay: 0s;
+  color: #4682B4;
+}
+
+.word:nth-child(2) {
+  animation-delay: 0.3s;
+  color: #87CEEB;
+}
+
+.word.highlight {
+  animation-delay: 0.6s;
+  color: #FFD700;
+  font-size: 1.2em;
+  animation: bounce-highlight 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes bounce-highlight {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-15px) scale(1.05);
+  }
+  80% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+.hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  animation: heart-float 4s ease-in-out infinite;
+}
+
+@keyframes heart-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Birthday Message Box */
+.birthday-message-box {
+  max-width: 800px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 3px solid transparent;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+    linear-gradient(45deg, #87CEEB, #FFD700, #E0F6FF, #FFF8DC);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border-radius: 20px;
+  box-shadow: 
+    0 15px 35px rgba(135, 206, 235, 0.3),
+    0 5px 15px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  padding: 0;
+  overflow: hidden;
+  animation: messageBoxAppear 2s ease-out 1.5s both;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 6;
+}
+
+.birthday-message-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(135, 206, 235, 0.1) 0%, 
+    rgba(255, 215, 0, 0.1) 50%, 
+    rgba(135, 206, 235, 0.1) 100%);
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.message-text {
+  padding: 1.5rem 2rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  line-height: 1.5;
+  color: #2c3e50;
+  font-family: 'Georgia', serif;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes messageBoxAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .birthday-text {
+    font-size: clamp(2rem, 12vw, 4rem);
+    margin: 1.5rem 0 0.5rem 0;
+  }
+  
+  .content {
+    padding: 2rem 1rem;
+  }
+  
+  .birthday-message-box {
+    width: 95%;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .message-text {
+    padding: 1.2rem 1.5rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    line-height: 1.4;
+  }
+  
+  .floating-element {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .heart {
+    font-size: 1.5rem;
+  }
+  
+  .sparkle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .birthday-text {
+    font-size: clamp(1.8rem, 15vw, 3.5rem);
+    margin: 1rem 0 0.5rem 0;
+  }
+  
+  .content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .birthday-message-box {
+    width: 98%;
+    border-radius: 15px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .message-text {
+    padding: 1rem 1.2rem;
+    font-size: clamp(0.75rem, 3vw, 0.9rem);
+    line-height: 1.3;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* Timeline Button */
+.timeline-button {
+  background: linear-gradient(45deg, #87CEEB 0%, #FFD700 100%);
+  color: #fff;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 
+    0 8px 20px rgba(135, 206, 235, 0.4),
+    0 4px 10px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 7;
+  font-family: 'Arial', sans-serif;
+}
+
+.timeline-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 12px 25px rgba(135, 206, 235, 0.5),
+    0 6px 15px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(45deg, #4682B4 0%, #DAA520 100%);
+}
+
+.timeline-button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .timeline-button {
+    padding: 0.8rem 2rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
